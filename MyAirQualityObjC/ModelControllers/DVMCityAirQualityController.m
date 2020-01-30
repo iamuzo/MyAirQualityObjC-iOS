@@ -255,6 +255,19 @@ static NSString *const cityDetailsComponent = @"city";
     }] resume];
 }
 
+/// this method is called fetchDataForCity and it returns nothing
+/// it takes 4 parameters: city, state, country and completion
+/// city, state, and country are of types NSString
+/// completion is a closure; meaning it is it a function used as a parameter
+/// completion also returns nothing (void) BUT when it `completes` with a
+/// certain type of value which is of type DVMCityAirQuality. It is important to
+/// keep in mind that what it completes with is available only within the scope of
+/// the function that calls this closure - here that is `fetchDataForCity` function - thus
+/// what completion completes with can be used anywhere `fetchDataForCity` is called
+/// BUT its completion value cannot be used outside of `fetchDataForCity`.
+/// When a function`return`s a value what is returned is available for use outside the function
+//// for example we can set the returned value to a variableand then use that variable somewhere
+/// BUT when a function `completes` with a value, that value can only be used inside the fuction
 + (void)fetchDataForCity:(NSString *)city
                    state:(NSString *)state
                  country:(NSString *)country
